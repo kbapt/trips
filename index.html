@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trips Like These - Authentic Local Experiences</title>
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Lucide Icons -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+
+        <style>
+            /* Custom styles */
+            .backdrop-blur-sm {
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+            }
+        </style>
+    </head>
+    <body class="font-sans text-gray-900">
+        <!-- Navigation -->
+        <header class="absolute w-full z-50">
+            <div class="container mx-auto px-4 py-6">
+                <nav class="flex justify-between items-center">
+                    <a href="/index.html" class="text-white text-2xl font-bold"
+                        >Trips Like These</a
+                    >
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a
+                            href="#experiences"
+                            class="text-white hover:text-white/80 transition"
+                            >Experiences</a
+                        >
+                        <a
+                            href="#accommodations"
+                            class="text-white hover:text-white/80 transition"
+                            >Accommodations</a
+                        >
+                        <a
+                            href="plan.html"
+                            class="text-white hover:text-white/80 transition"
+                            >Plan Your Trip</a
+                        >
+                        <a
+                            href="#login"
+                            class="bg-white text-indigo-600 px-4 py-2 rounded-full hover:bg-opacity-90 transition"
+                            >Sign In</a
+                        >
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="menuButton" class="md:hidden text-white">
+                        <i data-lucide="menu" class="block" id="menuIcon"></i>
+                        <i data-lucide="x" class="hidden" id="closeIcon"></i>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div
+                id="mobileMenu"
+                class="absolute top-20 inset-x-0 bg-white shadow-lg rounded-b-lg p-4 md:hidden hidden"
+            >
+                <div class="flex flex-col space-y-4">
+                    <a
+                        href="#experiences"
+                        class="text-gray-800 hover:text-indigo-600 transition"
+                        >Experiences</a
+                    >
+                    <a
+                        href="#accommodations"
+                        class="text-gray-800 hover:text-indigo-600 transition"
+                        >Accommodations</a
+                    >
+                    <a
+                        href="plan.html"
+                        class="text-gray-800 hover:text-indigo-600 transition"
+                        >Plan Your Trip</a
+                    >
+                    <a
+                        href="#login"
+                        class="bg-indigo-600 text-white px-4 py-2 rounded-full text-center hover:bg-indigo-700 transition"
+                        >Sign In</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative h-screen">
+            <div class="absolute inset-0 bg-black/30 z-10"></div>
+            <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="
+                    background-image: url(&quot;https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&h=1080&q=80&quot;);
+                "
+            ></div>
+
+            <div
+                class="relative z-20 container mx-auto px-4 h-full flex items-center"
+            >
+                <div class="max-w-2xl text-white">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                        Experience Places Like a Local
+                    </h1>
+                    <p class="text-xl mb-8">
+                        Discover authentic experiences guided by locals who are
+                        fairly compensated for sharing their knowledge and
+                        passion.
+                    </p>
+
+                    <!-- Search Bar -->
+                    <div class="bg-white rounded-lg p-4 shadow-lg">
+                        <div class="flex flex-col md:flex-row gap-4 mb-4">
+                            <div class="flex items-center flex-1">
+                                <i
+                                    data-lucide="map-pin"
+                                    class="text-gray-400 mr-2"
+                                    width="20"
+                                    height="20"
+                                ></i>
+                                <input
+                                    type="text"
+                                    placeholder="Where are you going?"
+                                    class="w-full focus:outline-none text-gray-800"
+                                />
+                            </div>
+                            <div
+                                class="border-r border-gray-300 hidden md:block"
+                            ></div>
+                            <div class="flex items-center flex-1">
+                                <i
+                                    data-lucide="calendar"
+                                    class="text-gray-400 mr-2"
+                                    width="20"
+                                    height="20"
+                                ></i>
+                                <input
+                                    type="text"
+                                    placeholder="When?"
+                                    class="w-full focus:outline-none text-gray-800"
+                                />
+                            </div>
+                            <button
+                                class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition flex items-center"
+                            >
+                                <i
+                                    data-lucide="search"
+                                    class="mr-2"
+                                    width="20"
+                                    height="20"
+                                ></i>
+                                <span>Search</span>
+                            </button>
+                        </div>
+
+                        <!-- Filters -->
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 pt-3 border-t border-gray-200"
+                        >
+                            <div>
+                                <label
+                                    class="block text-gray-700 text-sm font-medium mb-1"
+                                    >Experience Type</label
+                                >
+                                <select
+                                    class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm text-gray-900"
+                                >
+                                    <option value="">All Types</option>
+                                    <option value="food">Food & Cuisine</option>
+                                    <option value="culture">
+                                        Culture & Arts
+                                    </option>
+                                    <option value="nature">
+                                        Nature & Outdoors
+                                    </option>
+                                    <option value="wellness">Wellness</option>
+                                    <option value="adventure">Adventure</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label
+                                    class="block text-gray-700 text-sm font-medium mb-1"
+                                    >Price Range</label
+                                >
+                                <select
+                                    class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm text-gray-900"
+                                >
+                                    <option value="">Any Price</option>
+                                    <option value="budget">€0 - €50</option>
+                                    <option value="mid">€50 - €100</option>
+                                    <option value="premium">€100 - €200</option>
+                                    <option value="luxury">€200+</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label
+                                    class="block text-gray-700 text-sm font-medium mb-1"
+                                    >Duration</label
+                                >
+                                <select
+                                    class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm text-gray-900"
+                                >
+                                    <option value="">Any Duration</option>
+                                    <option value="short">1-3 hours</option>
+                                    <option value="half-day">Half-day</option>
+                                    <option value="full-day">Full-day</option>
+                                    <option value="multi-day">Multi-day</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label
+                                    class="block text-gray-700 text-sm font-medium mb-1"
+                                    >Group Size</label
+                                >
+                                <select
+                                    class="w-full bg-gray-50 border border-gray-200 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm text-gray-900"
+                                >
+                                    <option value="">Any Size</option>
+                                    <option value="small">Small (1-4)</option>
+                                    <option value="medium">
+                                        Medium (5-10)
+                                    </option>
+                                    <option value="large">Large (10+)</option>
+                                    <option value="private">
+                                        Private Only
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Experiences -->
+        <section id="experiences" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">
+                        Featured Local Experiences
+                    </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Handpicked authentic experiences that connect you with
+                        locals and their culture.
+                    </p>
+                </div>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                >
+                    <!-- Experience Card 1 -->
+                    <div
+                        class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+                    >
+                        <div class="h-64 overflow-hidden">
+                            <img
+                                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80"
+                                alt="Street Food Tour in Bangkok"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i
+                                    data-lucide="map-pin"
+                                    class="text-indigo-600 mr-2"
+                                    width="16"
+                                    height="16"
+                                ></i>
+                                <span class="text-gray-500 text-sm"
+                                    >Bangkok, Thailand</span
+                                >
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Hidden Street Food Tour
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Explore the vibrant flavors of Bangkok's street
+                                food scene with a local chef who knows all the
+                                secret spots.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-lg"
+                                    >€45 per person</span
+                                >
+                                <span class="text-gray-500 flex items-center">
+                                    <i
+                                        data-lucide="user"
+                                        class="mr-1"
+                                        width="16"
+                                        height="16"
+                                    ></i>
+                                    2-8 people
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Card 2 -->
+                    <div
+                        class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+                    >
+                        <div class="h-64 overflow-hidden">
+                            <img
+                                src="pottery.jpg"
+                                alt="Pottery Workshop in Lisbon"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i
+                                    data-lucide="map-pin"
+                                    class="text-indigo-600 mr-2"
+                                    width="16"
+                                    height="16"
+                                ></i>
+                                <span class="text-gray-500 text-sm"
+                                    >Lisbon, Portugal</span
+                                >
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Traditional Pottery Workshop
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Learn the art of Portuguese pottery from a
+                                master craftsman in a traditional studio dating
+                                back generations.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-lg"
+                                    >€65 per person</span
+                                >
+                                <span class="text-gray-500 flex items-center">
+                                    <i
+                                        data-lucide="user"
+                                        class="mr-1"
+                                        width="16"
+                                        height="16"
+                                    ></i>
+                                    1-4 people
+                                </span>
+                            </div>
+                            <a
+                                href="experiences.html"
+                                class="block text-center mt-4 text-indigo-600 hover:text-indigo-800 transition"
+                                >View Details</a
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Experience Card 3 -->
+                    <div
+                        class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+                    >
+                        <div class="h-64 overflow-hidden">
+                            <img
+                                src="hike.jpg"
+                                alt="Hiking Tour in Alps"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i
+                                    data-lucide="map-pin"
+                                    class="text-indigo-600 mr-2"
+                                    width="16"
+                                    height="16"
+                                ></i>
+                                <span class="text-gray-500 text-sm"
+                                    >Chamonix, France</span
+                                >
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Secret Alpine Trails
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Discover hidden trails and breathtaking views in
+                                the French Alps with a local mountain guide born
+                                in the region.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-lg"
+                                    >€75 per person</span
+                                >
+                                <span class="text-gray-500 flex items-center">
+                                    <i
+                                        data-lucide="user"
+                                        class="mr-1"
+                                        width="16"
+                                        height="16"
+                                    ></i>
+                                    2-6 people
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a
+                        href="#experiences"
+                        class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full hover:bg-indigo-700 transition"
+                    >
+                        Explore All Experiences
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center"
+                >
+                    <div>
+                        <h2 class="text-3xl font-bold mb-6">
+                            Why Choose Trips Like These?
+                        </h2>
+
+                        <div class="space-y-6">
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">
+                                    Authenticity Guaranteed
+                                </h3>
+                                <p class="text-gray-600">
+                                    Every experience on our platform is vetted
+                                    for authenticity and cultural significance,
+                                    ensuring you get the most genuine local
+                                    perspective.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">
+                                    Fair Compensation
+                                </h3>
+                                <p class="text-gray-600">
+                                    We ensure our local providers receive fair
+                                    payment for their expertise, knowledge, and
+                                    time - supporting local economies and
+                                    sustainable tourism.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">
+                                    Personalized Journeys
+                                </h3>
+                                <p class="text-gray-600">
+                                    Our Plan Your Trip builder helps you create
+                                    the perfect itinerary tailored to your
+                                    interests, timeframe, and budget.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative h-96 rounded-xl overflow-hidden">
+                        <img
+                            src="guide.jpg"
+                            alt="Local guide with travelers"
+                            class="absolute inset-0 w-full h-full object-cover"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section
+            class="py-16 bg-cover bg-center text-white relative"
+            style="
+                background-image: url(&quot;https://images.unsplash.com/photo-1585757318134-7fe21298787d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&h=800&q=80&quot;);
+            "
+        >
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">
+                        What Travelers Are Saying
+                    </h2>
+                    <p class="max-w-2xl mx-auto">
+                        Hear from people who have discovered the magic of
+                        traveling like a local.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div
+                        class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20"
+                    >
+                        <p class="italic mb-6">
+                            "Our tour of the Grotte de Han was absolutely
+                            breathtaking. Our guide showed us incredible rock
+                            formations and explained the fascinating geological
+                            history spanning millions of years."
+                        </p>
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 rounded-full bg-indigo-100 mr-4"
+                            ></div>
+                            <div>
+                                <h4 class="font-bold">Julie Dubois</h4>
+                                <p class="text-sm text-white/80">
+                                    from Charleroi, Belgium
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div
+                        class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20"
+                    >
+                        <p class="italic mb-6">
+                            "Our wine tasting and hiking tour in Alsace with
+                            Marie was unforgettable. She took us through hidden
+                            vineyard trails and introduced us to small family
+                            wineries we never would have discovered alone."
+                        </p>
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 rounded-full bg-indigo-100 mr-4"
+                            ></div>
+                            <div>
+                                <h4 class="font-bold">Marco Rossi</h4>
+                                <p class="text-sm text-white/80">
+                                    from Milan, Italy
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div
+                        class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20"
+                    >
+                        <p class="italic mb-6">
+                            "The surfing experience at Nazaré was truly
+                            exceptional. Staying in a picturesque traditional
+                            fishing house provided an authentic backdrop to our
+                            Portuguese coastal adventure. The lesson was
+                            extraordinary, and learning about the famous giant
+                            waves that can reach over 30 meters and the rich
+                            fishing heritage of the area created memories that
+                            will last a lifetime."
+                        </p>
+                        <div class="flex items-center">
+                            <div
+                                class="w-12 h-12 rounded-full bg-indigo-100 mr-4"
+                            ></div>
+                            <div>
+                                <h4 class="font-bold">Luise Weber</h4>
+                                <p class="text-sm text-white/80">
+                                    from Berlin, Germany
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plan Your Trip Builder CTA -->
+        <section id="custom" class="py-16 bg-indigo-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-4">
+                        Create Your Perfect Experience
+                    </h2>
+                    <p class="text-gray-600 mb-8">
+                        Not finding exactly what you're looking for? Our
+                        experience builder helps you craft a custom journey with
+                        local experts tailored to your preferences.
+                    </p>
+                    <a
+                        href="plan.html"
+                        class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full hover:bg-indigo-700 transition"
+                        >Plan Your Trip</a
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- Accommodations Section -->
+        <section id="accommodations" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">
+                        Authentic Local Accommodations
+                    </h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Stay with locals and experience true hospitality in
+                        carefully selected homes and unique properties.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Accommodation Card 1 -->
+                    <div
+                        class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200"
+                    >
+                        <div class="h-48 overflow-hidden">
+                            <img
+                                src="guesthouse.jpg"
+                                alt="Alfama Heritage Apartment"
+                                class="w-full h-full object-cover transition-all duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-1">
+                                Casa Rosa Guesthouse Alfama
+                            </h3>
+                            <div
+                                class="flex items-center text-sm text-gray-500 mb-2"
+                            >
+                                <i
+                                    data-lucide="map-pin"
+                                    class="mr-1"
+                                    width="14"
+                                    height="14"
+                                ></i>
+                                <span>Alfama, Portugal</span>
+                            </div>
+                            <div class="flex items-center mb-3">
+                                <span class="text-yellow-500 text-sm"
+                                    >★★★★☆</span
+                                >
+                                <span class="text-xs text-gray-500 ml-1"
+                                    >(32 reviews)</span
+                                >
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="font-bold">€85 per night</div>
+                                <a
+                                    href="accommodation.html"
+                                    class="text-indigo-600 text-sm font-medium hover:text-indigo-800"
+                                >
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accommodation Card 2 -->
+                    <div
+                        class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200"
+                    >
+                        <div class="h-48 overflow-hidden">
+                            <img
+                                src="piemontese.jpg"
+                                alt="Lisbon Boutique Hostel"
+                                class="w-full h-full object-cover transition-all duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-1">
+                                Cascina Piemontese Agriturismo
+                            </h3>
+                            <div
+                                class="flex items-center text-sm text-gray-500 mb-2"
+                            >
+                                <i
+                                    data-lucide="map-pin"
+                                    class="mr-1"
+                                    width="14"
+                                    height="14"
+                                ></i>
+                                <span>Orta San Giulo, Italy</span>
+                            </div>
+                            <div class="flex items-center mb-3">
+                                <span class="text-yellow-500 text-sm"
+                                    >★★★★★</span
+                                >
+                                <span class="text-xs text-gray-500 ml-1"
+                                    >(87 reviews)</span
+                                >
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="font-bold">€120 per night</div>
+                                <a
+                                    href="accommodation.html"
+                                    class="text-indigo-600 text-sm font-medium hover:text-indigo-800"
+                                >
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accommodation Card 3 -->
+                    <div
+                        class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200"
+                    >
+                        <div class="h-48 overflow-hidden">
+                            <img
+                                src="riad.jpg"
+                                alt="Alfama View Hotel"
+                                class="w-full h-full object-cover transition-all duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-1">Marrakech Riad Oasis</h3>
+                            <div
+                                class="flex items-center text-sm text-gray-500 mb-2"
+                            >
+                                <i
+                                    data-lucide="map-pin"
+                                    class="mr-1"
+                                    width="14"
+                                    height="14"
+                                ></i>
+                                <span>Marrakech, Morocco</span>
+                            </div>
+                            <div class="flex items-center mb-3">
+                                <span class="text-yellow-500 text-sm"
+                                    >★★★★☆</span
+                                >
+                                <span class="text-xs text-gray-500 ml-1"
+                                    >(56 reviews)</span
+                                >
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="font-bold">€95 per night</div>
+
+                                <a
+                                    href="accommodation.html"
+                                    class="text-indigo-600 text-sm font-medium hover:text-indigo-800"
+                                >
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <button
+                        class="bg-white border border-indigo-600 text-indigo-600 px-6 py-2 rounded-lg hover:bg-indigo-50 transition"
+                    >
+                        View All Accommodations
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Trips Like These</h3>
+                        <p class="text-gray-400">
+                            Connecting travelers with authentic local
+                            experiences around the world.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4">Explore</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a
+                                    href="#experiences"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Experiences</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#accommodations"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Accommodations</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="plan.html"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Plan Your Trip</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#destinations"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Destinations</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4">Company</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a
+                                    href="#about"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >About Us</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#become-host"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Become a Host</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#sustainability"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Sustainability</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#careers"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Careers</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4">Support</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a
+                                    href="#help"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Help Center</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#contact"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Contact Us</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#terms"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Terms of Service</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#privacy"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Privacy Policy</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+                >
+                    <p class="text-gray-400">
+                        © 2025 Trips Like These. All rights reserved.
+                    </p>
+                    <div class="mt-4 md:mt-0 flex space-x-4">
+                        <a
+                            href="#"
+                            class="text-gray-400 hover:text-white transition"
+                        >
+                            <span class="sr-only">Facebook</span>
+                            <i
+                                data-lucide="facebook"
+                                width="20"
+                                height="20"
+                            ></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="text-gray-400 hover:text-white transition"
+                        >
+                            <span class="sr-only">Instagram</span>
+                            <i
+                                data-lucide="instagram"
+                                width="20"
+                                height="20"
+                            ></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="text-gray-400 hover:text-white transition"
+                        >
+                            <span class="sr-only">Twitter</span>
+                            <i data-lucide="twitter" width="20" height="20"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Experience Detail Page (Hidden by default, linked from experience card) -->
+        <div id="experienceDetailPage" class="hidden">
+            <!-- Content would go here - similar to the React version but in static HTML -->
+        </div>
+
+        <!-- JavaScript for basic interactions -->
+        <script>
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Mobile menu toggle
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuButton = document.getElementById("menuButton");
+                const mobileMenu = document.getElementById("mobileMenu");
+                const menuIcon = document.getElementById("menuIcon");
+                const closeIcon = document.getElementById("closeIcon");
+
+                let isMenuOpen = false;
+
+                menuButton.addEventListener("click", function () {
+                    isMenuOpen = !isMenuOpen;
+
+                    if (isMenuOpen) {
+                        mobileMenu.classList.remove("hidden");
+                        menuIcon.classList.add("hidden");
+                        closeIcon.classList.remove("hidden");
+                    } else {
+                        mobileMenu.classList.add("hidden");
+                        menuIcon.classList.remove("hidden");
+                        closeIcon.classList.add("hidden");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

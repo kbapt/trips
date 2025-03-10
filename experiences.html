@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Trips Like These - Traditional Pottery Workshop Experience
+        </title>
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Lucide Icons -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+    </head>
+    <body class="font-sans text-gray-900">
+        <!-- Navigation -->
+        <header class="bg-indigo-600 text-white">
+            <div class="container mx-auto px-4 py-6">
+                <nav class="flex justify-between items-center">
+                    <a href="index.html" class="text-white text-2xl font-bold"
+                        >Trips Like These</a
+                    >
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a
+                            href="index.html#experiences"
+                            class="text-white hover:text-white/80 transition"
+                            >Experiences</a
+                        >
+                        <a
+                            href="index.html#accommodations"
+                            class="text-white hover:text-white/80 transition"
+                            >Accommodations</a
+                        >
+                        <a
+                            href="plan.html"
+                            class="text-white hover:text-white/80 transition"
+                            >Plan Your Trip</a
+                        >
+                        <a
+                            href="#login"
+                            class="bg-white text-indigo-600 px-4 py-2 rounded-full hover:bg-opacity-90 transition"
+                            >Sign In</a
+                        >
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="menuButton" class="md:hidden text-white">
+                        <i data-lucide="menu" class="block" id="menuIcon"></i>
+                        <i data-lucide="x" class="hidden" id="closeIcon"></i>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div
+                id="mobileMenu"
+                class="absolute top-20 inset-x-0 bg-white shadow-lg rounded-b-lg p-4 md:hidden hidden z-50"
+            >
+                <div class="flex flex-col space-y-4">
+                    <a
+                        href="index.html#experiences"
+                        class="text-gray-800 hover:text-indigo-600 transition"
+                        >Experiences</a
+                    >
+                    <a
+                        href="index.html#accommodations"
+                        class="text-gray-800 hover:text-indigo-600 transition"
+                        >Accommodations</a
+                    >
+                    <a
+                        href="plan.html"
+                        class="text-gray-800 hover:text-indigo-600 transition"
+                        >Trips Like These</a
+                    >
+                    <a
+                        href="#login"
+                        class="bg-indigo-600 text-white px-4 py-2 rounded-full text-center hover:bg-indigo-700 transition"
+                        >Sign In</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section with Experience Images -->
+        <section class="pt-16 bg-gray-100">
+            <div class="container mx-auto px-4 py-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-96">
+                    <div class="md:col-span-2 h-full">
+                        <img
+                            src="pottery2.jpg"
+                            alt="Traditional Pottery Workshop main image"
+                            class="w-full h-96 object-cover rounded-lg"
+                        />
+                    </div>
+                    <div class="hidden md:grid grid-rows-2 gap-4 h-full">
+                        <img
+                            src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=300&q=80"
+                            alt="Pottery workshop detail"
+                            class="w-full h-96 object-cover rounded-lg"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Content -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    <!-- Main Content -->
+                    <div class="lg:col-span-2">
+                        <div class="flex items-center mb-6">
+                            <i
+                                data-lucide="map-pin"
+                                class="text-indigo-600 mr-2"
+                                width="18"
+                                height="18"
+                            ></i>
+                            <span class="text-gray-500">Alfama, Portugal</span>
+                        </div>
+
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                            Traditional Portuguese Pottery Workshop
+                        </h1>
+
+                        <div class="mb-8">
+                            <div class="flex items-center space-x-1 mb-2">
+                                <span class="text-yellow-500">★★★★★</span>
+                                <span class="text-gray-600">(48 reviews)</span>
+                            </div>
+
+                            <!-- Authenticity Score -->
+                            <div
+                                class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6"
+                            >
+                                <div class="flex items-center mb-2">
+                                    <div class="text-lg font-bold mr-2">
+                                        Authenticity Score: 95%
+                                    </div>
+                                    <div
+                                        class="w-24 bg-gray-200 rounded-full h-2"
+                                    >
+                                        <div
+                                            class="bg-green-500 h-2 rounded-full"
+                                            style="width: 95%"
+                                        ></div>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-600">
+                                    Our authenticity score is calculated based
+                                    on the host's local expertise (25+ years),
+                                    use of traditional techniques and materials,
+                                    cultural significance (listed as Intangible
+                                    Cultural Heritage), and verified reviews
+                                    from past participants.
+                                </p>
+                            </div>
+
+                            <div class="prose max-w-none mb-8">
+                                <h2 class="text-2xl font-bold mb-4">
+                                    About This Experience
+                                </h2>
+                                <p>
+                                    Learn the art of traditional Portuguese
+                                    pottery in this hands-on workshop led by
+                                    master artisan João Silva, whose family has
+                                    been creating azulejos and ceramic pieces
+                                    for over five generations.
+                                </p>
+                                <p>
+                                    Working from his historic studio in the
+                                    Alfama district, João will guide you through
+                                    the entire process from preparing clay to
+                                    glazing techniques that have remained
+                                    unchanged for centuries. You'll learn about
+                                    the cultural significance of Portuguese
+                                    ceramic arts and discover the symbols and
+                                    patterns that make this tradition unique.
+                                </p>
+                                <p>
+                                    By the end of this 3-hour session, you'll
+                                    create your own hand-painted tile and a
+                                    small ceramic piece to take home as a
+                                    meaningful souvenir of your experience.
+                                </p>
+
+                                <h3 class="text-xl font-bold mt-6 mb-3">
+                                    What's Included
+                                </h3>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>All materials and tools</li>
+                                    <li>
+                                        Firing of your pieces (can be shipped to
+                                        your home address)
+                                    </li>
+                                    <li>Traditional Portuguese refreshments</li>
+                                    <li>
+                                        Historical guide to Portuguese pottery
+                                    </li>
+                                </ul>
+
+                                <h3 class="text-xl font-bold mt-6 mb-3">
+                                    Your Host: João Silva
+                                </h3>
+                                <div class="flex items-start mb-4">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80"
+                                        alt="João Silva"
+                                        class="w-16 h-16 rounded-full object-cover mr-4"
+                                    />
+                                    <div>
+                                        <p>
+                                            João is a 5th generation potter who
+                                            has been working with clay since
+                                            childhood. His work has been
+                                            featured in national museums and he
+                                            has received recognition as a Master
+                                            Craftsman by the Portuguese Ministry
+                                            of Culture.
+                                        </p>
+                                        <p class="mt-2">
+                                            "I'm passionate about keeping our
+                                            ceramic traditions alive and sharing
+                                            the stories behind each pattern and
+                                            technique with visitors from around
+                                            the world."
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div>
+                        <div
+                            class="bg-white rounded-lg border border-gray-200 shadow-sm p-6 sticky top-24"
+                        >
+                            <div class="text-2xl font-bold mb-2">
+                                €65 per person
+                            </div>
+                            <div class="text-gray-500 mb-2">
+                                3 hours, groups of 1-4 people
+                            </div>
+                            <div
+                                class="text-sm text-gray-500 border-t pt-2 mb-6"
+                            >
+                                <div class="flex justify-between">
+                                    <span>Host earnings (90%)</span>
+                                    <span>€58.50</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Platform fee (10%)</span>
+                                    <span>€6.50</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4 mb-6">
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="calendar"
+                                        class="text-gray-400 mr-3"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <div>
+                                        <div class="font-medium">
+                                            Select Date
+                                        </div>
+                                        <select
+                                            class="w-full mt-1 bg-gray-50 border border-gray-200 rounded px-3 py-2"
+                                        >
+                                            <option>
+                                                Thursday, Mar 13 - 10:00
+                                            </option>
+                                            <option>
+                                                Friday, Mar 14 - 14:00
+                                            </option>
+                                            <option>
+                                                Saturday, Mar 15 - 10:00
+                                            </option>
+                                            <option>
+                                                Sunday, Mar 16 - 14:00
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="user"
+                                        class="text-gray-400 mr-3"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <div>
+                                        <div class="font-medium">
+                                            Number of Guests
+                                        </div>
+                                        <select
+                                            class="w-full mt-1 bg-gray-50 border border-gray-200 rounded px-3 py-2"
+                                        >
+                                            <option>1 guest</option>
+                                            <option>2 guests</option>
+                                            <option>3 guests</option>
+                                            <option>4 guests</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button
+                                class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition mb-4"
+                            >
+                                Book Experience
+                            </button>
+
+                            <div class="text-center text-gray-500 text-sm">
+                                You won't be charged yet
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transportation Section -->
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-8">Getting There</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <div class="bg-white rounded-lg shadow-sm p-6">
+                            <h3 class="text-lg font-bold mb-4">
+                                Location & Transportation
+                            </h3>
+                            <p class="mb-4">
+                                The workshop is located in the historic Alfama
+                                district at Rua dos Artesãos, 27, Lisbon.
+                            </p>
+
+                            <div class="space-y-3 mb-6">
+                                <div class="flex items-start">
+                                    <div
+                                        class="bg-indigo-100 p-2 rounded-full mr-3"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5 text-indigo-600"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                                clip-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">
+                                            Public Transit
+                                        </div>
+                                        <p class="text-gray-600">
+                                            Take tram 28 to Alfama stop, then
+                                            walk 5 minutes east.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div
+                                        class="bg-indigo-100 p-2 rounded-full mr-3"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5 text-indigo-600"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                                            />
+                                            <path
+                                                d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H11a1 1 0 001-1v-1h3.05a2.5 2.5 0 014.9 0H20a1 1 0 001-1V8a1 1 0 00-.293-.707l-2-2A1 1 0 0018 5h-3v-.5a.5.5 0 00-.5-.5H9a.5.5 0 00-.5.5V7H4a1 1 0 00-1 1v6z"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">Taxi/Uber</div>
+                                        <p class="text-gray-600">
+                                            Approximately €8-10 from central
+                                            Lisbon.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start">
+                                    <div
+                                        class="bg-indigo-100 p-2 rounded-full mr-3"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5 text-indigo-600"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M10 3a1 1 0 00-1 1v5.586L5.707 6.293a1 1 0 00-1.414 1.414l5 5a1 1 0 001.414 0l5-5a1 1 0 00-1.414-1.414L11 9.586V4a1 1 0 00-1-1z"
+                                                clip-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <div class="font-medium">Parking</div>
+                                        <p class="text-gray-600">
+                                            Limited street parking. Public
+                                            parking garage available at Praça do
+                                            Comércio (800m away).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button
+                                class="w-full bg-gray-100 text-gray-800 py-2 rounded-lg hover:bg-gray-200 transition"
+                            >
+                                Get Directions
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="h-64 md:h-auto">
+                        <img
+                            src="https://images.unsplash.com/photo-1569959220744-ff553533f492?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80"
+                            alt="Map location"
+                            class="w-full h-full object-cover rounded-lg"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nearby Accommodations -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-8">Nearby Accommodations</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Accommodation Card 1 -->
+                    <div
+                        class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200"
+                    >
+                        <div class="h-48 overflow-hidden">
+                            <img
+                                src="guesthouse.jpg"
+                                alt="Alfama Heritage Apartment"
+                                class="w-full h-full object-cover transition-all duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-1">
+                                Casa Rosa Guesthouse Alfama
+                            </h3>
+                            <div
+                                class="flex items-center text-sm text-gray-500 mb-2"
+                            >
+                                <i
+                                    data-lucide="map-pin"
+                                    class="mr-1"
+                                    width="14"
+                                    height="14"
+                                ></i>
+                                <span>Alfama, Portugal</span>
+                            </div>
+                            <div class="flex items-center mb-3">
+                                <span class="text-yellow-500 text-sm"
+                                    >★★★★☆</span
+                                >
+                                <span class="text-xs text-gray-500 ml-1"
+                                    >(32 reviews)</span
+                                >
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="font-bold">€85 per night</div>
+
+                                <a
+                                    href="accommodation.html"
+                                    class="text-indigo-600 text-sm font-medium hover:text-indigo-800"
+                                >
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accommodation Card 2 -->
+                    <div
+                        class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200"
+                    >
+                        <div class="h-48 overflow-hidden">
+                            <img
+                                src="piemontese.jpg"
+                                alt="Lisbon Boutique Hostel"
+                                class="w-full h-full object-cover transition-all duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-1">
+                                Cascina Piemontese Agriturismo
+                            </h3>
+                            <div
+                                class="flex items-center text-sm text-gray-500 mb-2"
+                            >
+                                <i
+                                    data-lucide="map-pin"
+                                    class="mr-1"
+                                    width="14"
+                                    height="14"
+                                ></i>
+                                <span>Orta San Giulo, Italy</span>
+                            </div>
+                            <div class="flex items-center mb-3">
+                                <span class="text-yellow-500 text-sm"
+                                    >★★★★★</span
+                                >
+                                <span class="text-xs text-gray-500 ml-1"
+                                    >(87 reviews)</span
+                                >
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="font-bold">€120 per night</div>
+
+                                <a
+                                    href="accommodation.html"
+                                    class="text-indigo-600 text-sm font-medium hover:text-indigo-800"
+                                >
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accommodation Card 3 -->
+                    <div
+                        class="bg-white rounded-lg shadow-sm overflow-hidden border border-gray-200"
+                    >
+                        <div class="h-48 overflow-hidden">
+                            <img
+                                src="riad.jpg"
+                                alt="Alfama View Hotel"
+                                class="w-full h-full object-cover transition-all duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold mb-1">Marrakech Riad Oasis</h3>
+                            <div
+                                class="flex items-center text-sm text-gray-500 mb-2"
+                            >
+                                <i
+                                    data-lucide="map-pin"
+                                    class="mr-1"
+                                    width="14"
+                                    height="14"
+                                ></i>
+                                <span>Marrakech, Morocco</span>
+                            </div>
+                            <div class="flex items-center mb-3">
+                                <span class="text-yellow-500 text-sm"
+                                    >★★★★☆</span
+                                >
+                                <span class="text-xs text-gray-500 ml-1"
+                                    >(56 reviews)</span
+                                >
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="font-bold">€95 per night</div>
+
+                                <a
+                                    href="accommodation.html"
+                                    class="text-indigo-600 text-sm font-medium hover:text-indigo-800"
+                                >
+                                    View Details
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <button
+                        class="bg-white border border-indigo-600 text-indigo-600 px-6 py-2 rounded-lg hover:bg-indigo-50 transition"
+                    >
+                        View All Nearby Accommodations
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Trips Like These</h3>
+                        <p class="text-gray-400">
+                            Connecting travelers with authentic local
+                            experiences around the world.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4">Explore</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a
+                                    href="index.html#experiences"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Experiences</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="index.html#accommodations"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Accommodations</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="plan.html"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Plan Your Trip</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#destinations"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Destinations</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4">Company</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a
+                                    href="#about"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >About Us</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#become-host"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Become a Host</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#sustainability"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Sustainability</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#careers"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Careers</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4">Support</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a
+                                    href="#help"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Help Center</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#contact"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Contact Us</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#terms"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Terms of Service</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#privacy"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Privacy Policy</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+                >
+                    <p class="text-gray-400">
+                        © 2025 Trips Like These. All rights reserved.
+                    </p>
+                    <div class="mt-4 md:mt-0 flex space-x-4">
+                        <a
+                            href="#"
+                            class="text-gray-400 hover:text-white transition"
+                        >
+                            <span class="sr-only">Facebook</span>
+                            <i
+                                data-lucide="facebook"
+                                width="20"
+                                height="20"
+                            ></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="text-gray-400 hover:text-white transition"
+                        >
+                            <span class="sr-only">Instagram</span>
+                            <i
+                                data-lucide="instagram"
+                                width="20"
+                                height="20"
+                            ></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="text-gray-400 hover:text-white transition"
+                        >
+                            <span class="sr-only">Twitter</span>
+                            <i data-lucide="twitter" width="20" height="20"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JavaScript for basic interactions -->
+        <script>
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Mobile menu toggle
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuButton = document.getElementById("menuButton");
+                const mobileMenu = document.getElementById("mobileMenu");
+                const menuIcon = document.getElementById("menuIcon");
+                const closeIcon = document.getElementById("closeIcon");
+
+                let isMenuOpen = false;
+
+                menuButton.addEventListener("click", function () {
+                    isMenuOpen = !isMenuOpen;
+
+                    if (isMenuOpen) {
+                        mobileMenu.classList.remove("hidden");
+                        menuIcon.classList.add("hidden");
+                        closeIcon.classList.remove("hidden");
+                    } else {
+                        mobileMenu.classList.add("hidden");
+                        menuIcon.classList.remove("hidden");
+                        closeIcon.classList.add("hidden");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

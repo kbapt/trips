@@ -1,0 +1,1086 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trips Like These - Casa Rosa Guesthouse Alfama</title>
+
+        <!-- Tailwind CSS -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Lucide Icons -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+
+        <style>
+            .swiper-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            .swiper-button:hover {
+                background: rgba(255, 255, 255, 1);
+            }
+            .swiper-button-prev {
+                left: 16px;
+            }
+            .swiper-button-next {
+                right: 16px;
+            }
+            .swiper-pagination-bullet {
+                width: 8px;
+                height: 8px;
+                background: white;
+                opacity: 0.5;
+                border-radius: 50%;
+                margin: 0 4px;
+                display: inline-block;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+            .swiper-pagination-bullet-active {
+                opacity: 1;
+                background: white;
+            }
+        </style>
+    </head>
+    <body class="font-sans text-gray-900">
+        <!-- Navigation -->
+        <header class="bg-indigo-600 text-white">
+            <div class="container mx-auto px-4 py-6">
+                <nav class="flex justify-between items-center">
+                    <a href="index.html" class="text-white text-2xl font-bold"
+                        >Trips Like These</a
+                    >
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a
+                            href="index.html#experiences"
+                            class="text-white hover:text-white/80 transition"
+                            >Experiences</a
+                        >
+                        <a
+                            href="index.html#accommodations"
+                            class="text-white hover:text-white/80 transition"
+                            >Accommodations</a
+                        >
+                        <a
+                            href="plan.html"
+                            class="text-white hover:text-white/80 transition"
+                            >Plan Your Trip</a
+                        >
+                        <a
+                            href="#login"
+                            class="bg-white text-indigo-600 px-4 py-2 rounded-full hover:bg-opacity-90 transition"
+                            >Sign In</a
+                        >
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="menuButton" class="md:hidden text-white">
+                        <i data-lucide="menu" class="block" id="menuIcon"></i>
+                        <i data-lucide="x" class="hidden" id="closeIcon"></i>
+                    </button>
+                </nav>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div
+                id="mobileMenu"
+                class="absolute top-20 inset-x-0 bg-white shadow-lg rounded-b-lg p-4 md:hidden hidden z-50"
+            >
+                <div class="flex flex-col space-y-4">
+                    <a
+                        href="index.html#experiences"
+                        class="text-gray-800 hover:text-indigo-600 transition"
+                        >Experiences</a
+                    >
+                    <a
+                        href="index.html#accommodations"
+                        class="text-gray-800 hover:text-indigo-600 transition"
+                        >Accommodations</a
+                    >
+                    <a
+                        href="plan.html"
+                        class="text-gray-800 hover:text-indigo-600 transition"
+                        >Plan Your Trip</a
+                    >
+                    <a
+                        href="#login"
+                        class="bg-indigo-600 text-white px-4 py-2 rounded-full text-center hover:bg-indigo-700 transition"
+                        >Sign In</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section with Image Gallery -->
+        <section class="pt-20 bg-gray-100">
+            <div class="relative h-[500px] md:h-[600px]">
+                <!-- Image Gallery -->
+                <div class="absolute inset-0 overflow-hidden">
+                    <div class="relative h-full w-full" id="image-gallery">
+                        <!-- Main Image -->
+                        <div class="absolute inset-0 z-0">
+                            <img
+                                src="guesthouse.jpg"
+                                alt="Casa Rosa Guesthouse Exterior"
+                                class="w-full h-full object-cover"
+                                id="featured-image"
+                            />
+                        </div>
+
+                        <!-- Overlay for text -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 z-10"
+                        ></div>
+
+                        <!-- Image Controls -->
+                        <div
+                            class="absolute bottom-4 inset-x-0 flex justify-center space-x-2 z-20"
+                            id="thumbnail-container"
+                        >
+                            <div
+                                class="swiper-pagination flex items-center justify-center"
+                            ></div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="swiper-button swiper-button-prev">
+                            <i
+                                data-lucide="chevron-left"
+                                class="w-6 h-6 text-gray-900"
+                            ></i>
+                        </div>
+                        <div class="swiper-button swiper-button-next">
+                            <i
+                                data-lucide="chevron-right"
+                                class="w-6 h-6 text-gray-900"
+                            ></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Heading on image -->
+                <div
+                    class="container mx-auto px-4 h-full relative z-20 flex items-end pb-8"
+                >
+                    <div class="text-white">
+                        <h1 class="text-4xl md:text-5xl font-bold mb-2">
+                            Casa Rosa Guesthouse Alfama
+                        </h1>
+                        <div class="flex items-center mb-2">
+                            <i
+                                data-lucide="map-pin"
+                                class="mr-2"
+                                width="18"
+                                height="18"
+                            ></i>
+                            <span>Alfama, Lisbon, Portugal</span>
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <span class="text-yellow-500">★★★★★</span>
+                            <span>(32 reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                    <!-- Left Column: Description & Features -->
+                    <div class="lg:col-span-2">
+                        <!-- Authenticity Score -->
+                        <div
+                            class="bg-green-50 border border-green-200 rounded-lg p-4 mb-8"
+                        >
+                            <div class="flex items-center mb-2">
+                                <div class="text-lg font-bold mr-2">
+                                    Authenticity Score: 92%
+                                </div>
+                                <div class="w-24 bg-gray-200 rounded-full h-2">
+                                    <div
+                                        class="bg-green-500 h-2 rounded-full"
+                                        style="width: 92%"
+                                    ></div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                Our authenticity score measures how genuine the
+                                local experience is. This accommodation scores
+                                highly for its historical building (dating to
+                                1734), local ownership (family-run for 3
+                                generations), traditional Portuguese decor, and
+                                proximity to authentic neighborhoods.
+                            </p>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="prose max-w-none mb-8">
+                            <h2 class="text-2xl font-bold mb-4">
+                                About This Accommodation
+                            </h2>
+                            <p>
+                                Welcome to Casa Rosa, a lovingly restored
+                                18th-century family home in the heart of
+                                Lisbon's historic Alfama district. Our
+                                guesthouse offers a genuine Portuguese
+                                experience, where you'll stay in a traditional
+                                building while enjoying modern comforts.
+                            </p>
+                            <p>
+                                The building features original azulejo tiles,
+                                wooden beams, and traditional architecture,
+                                while each room has been thoughtfully updated
+                                with comfortable beds, modern bathrooms, and
+                                amenities for today's traveler. From our rooftop
+                                terrace, you'll enjoy breathtaking views of the
+                                Tagus River and the terracotta rooftops of
+                                Alfama.
+                            </p>
+                            <p>
+                                The guesthouse is run by the Rosa family, who
+                                have lived in this neighborhood for generations.
+                                Maria and João are your hosts, ready to share
+                                their insider knowledge of Lisbon's hidden gems,
+                                from the best small fado houses to authentic
+                                local restaurants tourists rarely discover.
+                            </p>
+                        </div>
+
+                        <!-- Features -->
+                        <div class="mb-10">
+                            <h3 class="text-xl font-bold mb-4">
+                                Amenities & Features
+                            </h3>
+                            <div
+                                class="grid grid-cols-2 md:grid-cols-3 gap-y-4"
+                            >
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="wifi"
+                                        class="mr-3 text-indigo-600"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <span>Free Wi-Fi</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="coffee"
+                                        class="mr-3 text-indigo-600"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <span>Breakfast Included</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="mountain"
+                                        class="mr-3 text-indigo-600"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <span>Rooftop Terrace</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="air-vent"
+                                        class="mr-3 text-indigo-600"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <span>Air Conditioning</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="bath"
+                                        class="mr-3 text-indigo-600"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <span>Private Bathroom</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="utensils"
+                                        class="mr-3 text-indigo-600"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <span>Communal Kitchen</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hosts -->
+                        <div class="mb-10">
+                            <h3 class="text-xl font-bold mb-4">Your Hosts</h3>
+                            <div class="flex items-start">
+                                <img
+                                    src="https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80"
+                                    alt="Maria and João Rosa"
+                                    class="w-16 h-16 rounded-full object-cover mr-4"
+                                />
+                                <div>
+                                    <p class="mb-2">
+                                        Maria and João Rosa are lifelong Alfama
+                                        residents who converted their family
+                                        home into a guesthouse in 2005. They
+                                        live on the ground floor and are always
+                                        available to help guests with
+                                        recommendations, directions, or just a
+                                        friendly conversation over a glass of
+                                        Portuguese wine.
+                                    </p>
+                                    <p class="italic">
+                                        "We love sharing our neighborhood with
+                                        visitors who want to experience the real
+                                        Lisbon. Our guests often arrive as
+                                        tourists but leave as friends."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location Info -->
+                        <div class="mb-10">
+                            <h3 class="text-xl font-bold mb-4">Location</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <p class="mb-4">
+                                        Casa Rosa is located in the heart of
+                                        Alfama, Lisbon's oldest neighborhood.
+                                        This charming, labyrinthine district is
+                                        known for its narrow streets, historic
+                                        buildings, and authentic fado music
+                                        venues.
+                                    </p>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-center">
+                                            <i
+                                                data-lucide="info"
+                                                class="mr-2 text-indigo-600"
+                                                width="16"
+                                                height="16"
+                                            ></i>
+                                            <span
+                                                >5-minute walk to São Jorge
+                                                Castle</span
+                                            >
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i
+                                                data-lucide="info"
+                                                class="mr-2 text-indigo-600"
+                                                width="16"
+                                                height="16"
+                                            ></i>
+                                            <span
+                                                >350m from Portas do Sol
+                                                viewpoint</span
+                                            >
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i
+                                                data-lucide="info"
+                                                class="mr-2 text-indigo-600"
+                                                width="16"
+                                                height="16"
+                                            ></i>
+                                            <span
+                                                >500m from Lisbon
+                                                Cathedral</span
+                                            >
+                                        </li>
+                                        <li class="flex items-center">
+                                            <i
+                                                data-lucide="info"
+                                                class="mr-2 text-indigo-600"
+                                                width="16"
+                                                height="16"
+                                            ></i>
+                                            <span
+                                                >Tram 28 stop (200m away)</span
+                                            >
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="h-64">
+                                    <img
+                                        src="https://images.unsplash.com/photo-1569959220744-ff553533f492?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80"
+                                        alt="Map of Alfama"
+                                        class="w-full h-full object-cover rounded-lg"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reviews -->
+                        <div class="mb-10">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="text-xl font-bold">Guest Reviews</h3>
+                                <div class="flex items-center">
+                                    <span class="text-yellow-500 mr-1"
+                                        >★★★★★</span
+                                    >
+                                    <span class="font-medium"
+                                        >4.9 (32 reviews)</span
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                                <!-- Review 1 -->
+                                <div class="border-b border-gray-200 pb-6">
+                                    <div class="flex items-center mb-3">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=60&h=60&q=80"
+                                            alt="Sophia"
+                                            class="w-10 h-10 rounded-full mr-3"
+                                        />
+                                        <div>
+                                            <div class="font-medium">
+                                                Sophia
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                March 2025
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-yellow-500 mb-2">
+                                        ★★★★★
+                                    </div>
+                                    <p>
+                                        Casa Rosa was the highlight of our
+                                        Portugal trip! The room was beautiful
+                                        with traditional tiles and modern
+                                        comforts. Maria's breakfast was
+                                        incredible, and her local
+                                        recommendations helped us discover
+                                        places we would never have found. The
+                                        rooftop terrace views are unforgettable,
+                                        especially at sunset with a glass of
+                                        port wine.
+                                    </p>
+                                </div>
+
+                                <!-- Review 2 -->
+                                <div class="border-b border-gray-200 pb-6">
+                                    <div class="flex items-center mb-3">
+                                        <img
+                                            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=60&h=60&q=80"
+                                            alt="Thomas"
+                                            class="w-10 h-10 rounded-full mr-3"
+                                        />
+                                        <div>
+                                            <div class="font-medium">
+                                                Thomas
+                                            </div>
+                                            <div class="text-sm text-gray-500">
+                                                February 2025
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-yellow-500 mb-2">
+                                        ★★★★★
+                                    </div>
+                                    <p>
+                                        Staying at Casa Rosa gave us a genuine
+                                        taste of Lisbon life. The location in
+                                        Alfama is perfect - close to everything
+                                        but still quiet at night. João's
+                                        recommendations for fado venues were
+                                        spot on. We especially appreciated the
+                                        kitchen access and the lovely communal
+                                        area where we met other travelers.
+                                    </p>
+                                </div>
+
+                                <button
+                                    class="text-indigo-600 font-medium hover:text-indigo-800 inline-flex items-center"
+                                >
+                                    See all 32 reviews
+                                    <i
+                                        data-lucide="chevron-right"
+                                        class="ml-1"
+                                        width="16"
+                                        height="16"
+                                    ></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Booking Widget -->
+                    <div>
+                        <div
+                            class="bg-white rounded-lg border border-gray-200 shadow-sm p-6 sticky top-24"
+                        >
+                            <div class="text-2xl font-bold mb-2">
+                                €85 per night
+                            </div>
+                            <div class="flex items-center text-gray-500 mb-6">
+                                <i
+                                    data-lucide="tag"
+                                    class="mr-1"
+                                    width="16"
+                                    height="16"
+                                ></i>
+                                <span
+                                    >Breakfast included • Free
+                                    cancellation</span
+                                >
+                            </div>
+
+                            <div class="space-y-4 mb-6">
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="calendar"
+                                        class="text-gray-400 mr-3"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <div class="flex-1">
+                                        <div class="font-medium mb-1">
+                                            Check-in
+                                        </div>
+                                        <input
+                                            type="date"
+                                            class="w-full border border-gray-200 rounded px-3 py-2"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="calendar"
+                                        class="text-gray-400 mr-3"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <div class="flex-1">
+                                        <div class="font-medium mb-1">
+                                            Check-out
+                                        </div>
+                                        <input
+                                            type="date"
+                                            class="w-full border border-gray-200 rounded px-3 py-2"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="users"
+                                        class="text-gray-400 mr-3"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <div class="flex-1">
+                                        <div class="font-medium mb-1">
+                                            Guests
+                                        </div>
+                                        <select
+                                            class="w-full border border-gray-200 rounded px-3 py-2"
+                                        >
+                                            <option>1 guest</option>
+                                            <option>2 guests</option>
+                                            <option>3 guests</option>
+                                            <option>4 guests</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center">
+                                    <i
+                                        data-lucide="bed-double"
+                                        class="text-gray-400 mr-3"
+                                        width="18"
+                                        height="18"
+                                    ></i>
+                                    <div class="flex-1">
+                                        <div class="font-medium mb-1">
+                                            Room Type
+                                        </div>
+                                        <select
+                                            class="w-full border border-gray-200 rounded px-3 py-2"
+                                        >
+                                            <option>
+                                                Double Room with River View
+                                            </option>
+                                            <option>
+                                                Twin Room with Terrace Access
+                                            </option>
+                                            <option>
+                                                Family Suite with Private
+                                                Balcony
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Price Summary -->
+                            <div
+                                class="border-t border-b border-gray-200 py-4 mb-4"
+                            >
+                                <div class="flex justify-between mb-2">
+                                    <div>€85 x 3 nights</div>
+                                    <div>€255</div>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <div>Cleaning fee</div>
+                                    <div>€20</div>
+                                </div>
+                                <div
+                                    class="flex justify-between text-sm text-gray-500 mb-2"
+                                >
+                                    <div>Platform fee (10%)</div>
+                                    <div>€27.50</div>
+                                </div>
+                                <div
+                                    class="flex justify-between text-sm text-gray-500 mb-4"
+                                >
+                                    <div>Host share (90%)</div>
+                                    <div>€247.50</div>
+                                </div>
+                                <div
+                                    class="flex justify-between font-bold mt-4"
+                                >
+                                    <div>Total</div>
+                                    <div>€275</div>
+                                </div>
+                            </div>
+
+                            <button
+                                class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition mb-4"
+                            >
+                                Book Now
+                            </button>
+
+                            <div class="text-center text-gray-500 text-sm">
+                                You won't be charged yet
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nearby Experiences -->
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-8">Nearby Experiences</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Experience 1: Pottery Workshop -->
+                    <div
+                        class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+                    >
+                        <div class="h-64 overflow-hidden">
+                            <img
+                                src="pottery.jpg"
+                                alt="Traditional Pottery Workshop"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i
+                                    data-lucide="map-pin"
+                                    class="text-indigo-600 mr-2"
+                                    width="16"
+                                    height="16"
+                                ></i>
+                                <span class="text-gray-500 text-sm"
+                                    >350m from Casa Rosa</span
+                                >
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Traditional Pottery Workshop
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Learn the art of Portuguese pottery from a
+                                master craftsman in a traditional studio dating
+                                back generations.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-lg"
+                                    >€65 per person</span
+                                >
+                                <a
+                                    href="experiences.html"
+                                    class="text-indigo-600 hover:text-indigo-800 transition"
+                                    >View Details</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2: Fado Night -->
+                    <div
+                        class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+                    >
+                        <div class="h-64 overflow-hidden">
+                            <img
+                                src="fado.jpg"
+                                alt="Authentic Fado Night"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i
+                                    data-lucide="map-pin"
+                                    class="text-indigo-600 mr-2"
+                                    width="16"
+                                    height="16"
+                                ></i>
+                                <span class="text-gray-500 text-sm"
+                                    >200m from Casa Rosa</span
+                                >
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Authentic Fado Night
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Experience the soul of Portugal with an intimate
+                                fado performance in a traditional tavern with
+                                dinner included.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-lg"
+                                    >€55 per person</span
+                                >
+                                <a
+                                    href="experiences.html"
+                                    class="text-indigo-600 hover:text-indigo-800 transition"
+                                    >View Details</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience 3: Food Tour -->
+                    <div
+                        class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+                    >
+                        <div class="h-64 overflow-hidden">
+                            <img
+                                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80"
+                                alt="Alfama Food Walk"
+                                class="w-full h-full object-cover transition duration-500 hover:scale-105"
+                            />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center mb-4">
+                                <i
+                                    data-lucide="map-pin"
+                                    class="text-indigo-600 mr-2"
+                                    width="16"
+                                    height="16"
+                                ></i>
+                                <span class="text-gray-500 text-sm"
+                                    >Starts at Casa Rosa</span
+                                >
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Alfama Food Walk
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Discover the flavors of Lisbon with this walking
+                                tour through Alfama's hidden eateries, tasting
+                                Portuguese specialties.
+                            </p>
+                            <div class="flex justify-between items-center">
+                                <span class="font-bold text-lg"
+                                    >€70 per person</span
+                                >
+                                <a
+                                    href="experiences.html"
+                                    class="text-indigo-600 hover:text-indigo-800 transition"
+                                    >View Details</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a
+                        href="index.html#experiences"
+                        class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full hover:bg-indigo-700 transition"
+                    >
+                        Explore More Experiences
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Trips Like These</h3>
+                        <p class="text-gray-400">
+                            Connecting travelers with authentic local
+                            experiences around the world.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4">Explore</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a
+                                    href="index.html#experiences"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Experiences</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="index.html#accommodations"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Accommodations</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="plan.html"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Plan Your Trip</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#destinations"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Destinations</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4">Company</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a
+                                    href="#about"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >About Us</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#become-host"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Become a Host</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#sustainability"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Sustainability</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#careers"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Careers</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold mb-4">Support</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a
+                                    href="#help"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Help Center</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#contact"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Contact Us</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#terms"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Terms of Service</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href="#privacy"
+                                    class="text-gray-400 hover:text-white transition"
+                                    >Privacy Policy</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div
+                    class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+                >
+                    <p class="text-gray-400">
+                        © 2025 Trips Like These. All rights reserved.
+                    </p>
+                    <div class="mt-4 md:mt-0 flex space-x-4">
+                        <a
+                            href="#"
+                            class="text-gray-400 hover:text-white transition"
+                        >
+                            <span class="sr-only">Facebook</span>
+                            <i
+                                data-lucide="facebook"
+                                width="20"
+                                height="20"
+                            ></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="text-gray-400 hover:text-white transition"
+                        >
+                            <span class="sr-only">Instagram</span>
+                            <i
+                                data-lucide="instagram"
+                                width="20"
+                                height="20"
+                            ></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="text-gray-400 hover:text-white transition"
+                        >
+                            <span class="sr-only">Twitter</span>
+                            <i data-lucide="twitter" width="20" height="20"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JavaScript for basic interactions -->
+        <script>
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Mobile menu toggle
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuButton = document.getElementById("menuButton");
+                const mobileMenu = document.getElementById("mobileMenu");
+                const menuIcon = document.getElementById("menuIcon");
+                const closeIcon = document.getElementById("closeIcon");
+
+                let isMenuOpen = false;
+
+                menuButton.addEventListener("click", function () {
+                    isMenuOpen = !isMenuOpen;
+
+                    if (isMenuOpen) {
+                        mobileMenu.classList.remove("hidden");
+                        menuIcon.classList.add("hidden");
+                        closeIcon.classList.remove("hidden");
+                    } else {
+                        mobileMenu.classList.add("hidden");
+                        menuIcon.classList.remove("hidden");
+                        closeIcon.classList.add("hidden");
+                    }
+                });
+
+                // Simple image gallery
+                const images = [
+                    "https://images.unsplash.com/photo-1501183638710-841dd1904471?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&h=1080&q=80",
+                    "https://images.unsplash.com/photo-1494526585095-c41cacdfa2c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&h=1080&q=80",
+                    "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&h=1080&q=80",
+                    "https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&h=1080&q=80",
+                    "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&h=1080&q=80",
+                ];
+
+                let currentImageIndex = 0;
+                const featuredImage = document.getElementById("featured-image");
+                const paginationContainer =
+                    document.querySelector(".swiper-pagination");
+                const prevButton = document.querySelector(
+                    ".swiper-button-prev",
+                );
+                const nextButton = document.querySelector(
+                    ".swiper-button-next",
+                );
+
+                // Create pagination bullets
+                images.forEach((_, index) => {
+                    const bullet = document.createElement("span");
+                    bullet.classList.add("swiper-pagination-bullet");
+                    if (index === 0)
+                        bullet.classList.add("swiper-pagination-bullet-active");
+                    bullet.addEventListener("click", () => {
+                        showImage(index);
+                    });
+                    paginationContainer.appendChild(bullet);
+                });
+
+                // Function to show an image by index
+                function showImage(index) {
+                    currentImageIndex = index;
+                    featuredImage.src = images[index];
+
+                    // Update pagination bullets
+                    const bullets = document.querySelectorAll(
+                        ".swiper-pagination-bullet",
+                    );
+                    bullets.forEach((bullet, i) => {
+                        if (i === index) {
+                            bullet.classList.add(
+                                "swiper-pagination-bullet-active",
+                            );
+                        } else {
+                            bullet.classList.remove(
+                                "swiper-pagination-bullet-active",
+                            );
+                        }
+                    });
+                }
+
+                // Previous button
+                prevButton.addEventListener("click", () => {
+                    currentImageIndex =
+                        (currentImageIndex - 1 + images.length) % images.length;
+                    showImage(currentImageIndex);
+                });
+
+                // Next button
+                nextButton.addEventListener("click", () => {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    showImage(currentImageIndex);
+                });
+            });
+        </script>
+    </body>
+</html>
